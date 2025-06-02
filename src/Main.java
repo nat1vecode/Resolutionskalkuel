@@ -54,6 +54,10 @@ public class Main {
     public static List<String> convertToCharacterList(String s) {
         int l = 1;
         List<String> a = new ArrayList<>();
+        s = s.replaceAll("\uD835\uDC4E", "a");
+        s = s.replaceAll("\uD835\uDC4F", "b");
+        s = s.replaceAll("\uD835\uDC50", "c");
+        s = s.replaceAll("\uD835\uDC51", "d");
         if (!s.contains("(")) {
             a.add(s);
             return a;
@@ -119,6 +123,9 @@ public class Main {
     public static List<List<String>> unpadList(List<List<String>> toUnpad) {
         for (List<String> clause : toUnpad) {
             clause.removeIf(s -> s.equals("-"));
+            for (String s : clause) {
+                s = s.replaceAll("\uD835\uDC4E", "a");
+            }
         }
         return toUnpad;
     }
